@@ -1,0 +1,169 @@
+    <p><span class="dropcap" style="">F</span>or my text adventure game, <a href="../../../Games/A_Winters_Tale/details/">A Winter's Tale</a>, I soon realized I had a lot of text and repetitive objects in each of my scenes. I thought about how to best organize and deliver it and then I remembered good-ol-XML. I originally had a separate scene in Unity for each part of the story, but every scene was essentially the same; an image, story text, and a number of buttons for the player's choice of action. Also in the back of my mind I was contemplating the caching of those images so each wouldn't have to load on every scene. Why not, then, create scene elements by name in XML that house this data since each scene has these similar characteristics?</p>
+
+    <iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/SrdrtsRYtPA"></iframe>
+
+    <h2 class="section-heading">XML 101</h2>
+    <p>XML is easy to read and self-described. If you've worked with HTML, then you've essentially worked with a subset of XML. Infact, XML is more flexible as there are no predefined tags. In this way, XML is tailored to organizing your data as you see fit.</p>
+<pre class="language-markup"><code class="language-markup">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+
+&lt;scenes&gt;
+    &lt;scene name="Scene_Street" image="Scene_Street" audioClip=""&gt;
+        &lt;story&gt;You awake and rise in the narrow back alley that you call home.&lt;/story&gt;
+        &lt;options&gt;
+            &lt;option loads="Scene_Village-Center"&gt;{1} Go to town center.&lt;/option&gt;
+            &lt;option loads="Scene_Village-Door"&gt;{2} Go to door.&lt;/option&gt;
+            &lt;option loads="Scene_Bridge"&gt;{3} Leave town.&lt;/option&gt;
+            &lt;option loads="Scene_Death_Sleep"&gt;{4} Go back to sleep.&lt;/option&gt;
+        &lt;/options&gt;
+    &lt;/scene&gt;
+    &lt;scene name="Scene_Dragon" image="Scene_Dragon" audioClip="boss-fight"&gt;
+        &lt;story&gt;You're attacked by a White Dragon!&lt;/story&gt;
+        &lt;options&gt;
+            &lt;option loads="Scene_Death_Dragon_Attack"&gt;{1} Attack!&lt;/option&gt;
+            &lt;option loads="Scene_Tower"&gt;{2} Shield.&lt;/option&gt;
+            &lt;option loads="Scene_Death_Dragon_Run"&gt;{3} Run.&lt;/option&gt;
+        &lt;/options&gt;
+    &lt;/scene&gt;
+&lt;/scenes&gt;
+
+</code></pre>
+    <p>In the sample shown above, I'm indicating that this is a collection of "scenes" and nested inside that can be any number of "scene" children. Attributes of the scene include name, image, and audioClip in case I'd like one to play upon load. Sibling elements of the scene include the story itself and  a number of options. In code I assume a minimum of one option and a maximum of four. These correspond directly to the buttons on screen, which render conditionally based on the presence of these options. I could have named these elements and attributes anything I liked.</p>
+
+    <h2 class="section-heading">Preparing the Script</h2>
+    <p>In Unity I added an empty game object to the scene and attached a single C# script to it. The game is simple enough that this single class can control all the gameplay, so I don't have to worry about persisting that XML data across multiple scenes and scope. At the top of the script, include the System.Xml using statement. Now days Linq to XML is the favored parsing technology, but the support for it by the Mono compiler is shakey. I did get it to work by manually copying the DLL into my project, but it was always buggy and drove me crazy, so in this case, the old ways are better. Just means we'll have to brush up on our XPath.</p>
+<pre class="language-csharp"><code class="language-csharp">
+Sprite[] sceneSprites = Resources.LoadAll&lt;Sprite&gt;("SceneSprites");
+Dictionary&lt;string, Sprite&gt; sceneImagesByName = new Dictionary&lt;string, Sprite&gt;();
+
+for (int i = 0; i &lt; sceneSprites.Length; i++)
+{
+    sceneImagesByName[sceneSprites[i].name] = sceneSprites[i];
+}
+
+AudioClip[] sceneAudioClips = Resources.LoadAll&lt;AudioClip&gt;("SceneAudioClips");
+Dictionary&lt;string, AudioClip&gt; sceneAudioClipsByName = new Dictionary&lt;string, AudioClip&gt;();
+
+for (int i = 0; i &lt; sceneAudioClips.Length; i++)
+{
+    sceneAudioClipsByName[sceneAudioClips[i].name] = sceneAudioClips[i];
+}
+
+</code></pre>
+    <p>From the Unity start method, I call my parsing method. I created a dictionary to store all my image and audio files by name. The files must be located in Assets > Resources and the string parameter passed to the LoadAll method is the name of the folder the given files are actually in.</p>
+
+<pre class="language-csharp"><code class="language-csharp">
+TextAsset textAsset = (TextAsset)Resources.Load("SceneText");
+XmlDocument xmlDocument = new XmlDocument();
+xmlDocument.LoadXml(textAsset.text);
+
+</code></pre>
+    <p>Next I similarly bring in the XML file itself, named "SceneText", from the Resources folder and cast it as a TextAsset. Then I can use that text to load my XmlDocument object.</p>
+
+<pre class="language-csharp"><code class="language-csharp">
+private class LevelData
+{
+    public Sprite LevelImage;
+    public AudioClip LevelAudioClip;
+    public float Volume = 0.1f;
+    public string LevelStory;
+    public string AlternateLevelStory;
+    public Dictionary&lt;string, string&gt; LevelButtonsAndLoads;
+    public Dictionary&lt;string, string&gt; AlternateLevelButtonsAndLoads;
+}
+
+</code></pre>
+    <p>Before getting into the real work of parsing that XmlDocument, let me show you my setup.  I created a nested class called LevelData to house the individual pieces needed for each level, and then created a class level collection to store that LevelData by name of the level. So now at any point I can just get the name of the level I'm on and have instant in-memory access to all elements.</p>
+
+    <h2 class="section-heading">Parsing With C#</h2>
+    <p></p>
+
+<pre class="language-csharp"><code class="language-csharp">
+TextAsset textAsset = (TextAsset)Resources.Load("SceneText");
+XmlDocument xmlDocument = new XmlDocument();
+xmlDocument.LoadXml(textAsset.text);
+
+foreach (XmlNode scene in xmlDocument["scenes"].ChildNodes)
+{
+    string sceneName = scene.Attributes["name"].Value;
+
+    levelDataBySceneName[sceneName] = new LevelData() 
+    {
+        LevelImage = sceneImagesByName[scene.Attributes["image"].Value],
+        LevelAudioClip = null,
+        LevelStory = scene["story"].InnerText,
+        AlternateLevelStory = scene["alternateStory"].InnerText,
+        LevelButtonsAndLoads = new Dictionary&lt;string,string&gt;(),
+        AlternateLevelButtonsAndLoads = new Dictionary&lt;string,string&gt;()
+    };
+
+    if (!string.IsNullOrEmpty(scene.Attributes["audioClip"].Value))
+    {
+        levelDataBySceneName[sceneName].LevelAudioClip = sceneAudioClipsByName[scene.Attributes["audioClip"].Value];
+    }
+
+    foreach(XmlNode option in scene["options"].ChildNodes)
+    {
+        levelDataBySceneName[sceneName].LevelButtonsAndLoads[option.InnerText] = option.Attributes["loads"].Value;
+    }
+
+    foreach (XmlNode alternateOption in scene["alternateOptions"].ChildNodes)
+    {
+        levelDataBySceneName[sceneName].AlternateLevelButtonsAndLoads[alternateOption.InnerText] = alternateOption.Attributes["loads"].Value;
+    }
+}
+
+</code></pre>
+    <p>In the above code, after initializing my XmlObject I begin looping across the children of my "scenes" element. I get the value of the attribute named "name", and use that as the key of my dictionary. Finally I set the LevelData fields using a combination of those techniques.</p>
+
+    <h2 class="section-heading">Rendering to the Unity Scene</h2>
+    <p>Next I'll go over some of how I use this collection to populate my scene.</p>
+<pre class="language-csharp"><code class="language-csharp">
+// Gameplay Variables
+private string currentLevelName;
+private string lastPlayedLevelName;
+private Button[] currentLevelChoiceButtons;
+private string[] levelsThatCurrentButtonsLoad;
+
+// Level Objects
+public Image ImageStory;
+public Text TextStory;
+public Button BtnChoiceOne;
+public Button BtnChoiceTwo;
+public Button BtnChoiceThree;
+public Button BtnChoiceFour;
+
+</code></pre>
+<pre class="language-csharp"><code class="language-csharp">
+currentLevelChoiceButtons = new Button[] { null, BtnChoiceOne, BtnChoiceTwo, BtnChoiceThree, BtnChoiceFour };
+levelsThatCurrentButtonsLoad = new string[5];
+int buttonNumber = 1;
+
+TextStory.text = levelDataBySceneName[sceneName].LevelStory;
+
+foreach (KeyValuePair&lt;string, string&gt; buttonAndLoad in levelDataBySceneName[sceneName].LevelButtonsAndLoads)
+{
+    currentLevelChoiceButtons[buttonNumber].GetComponent&lt;Text&gt;().text = buttonAndLoad.Key;
+    currentLevelChoiceButtons[buttonNumber].interactable = true;
+    levelsThatCurrentButtonsLoad[buttonNumber] = buttonAndLoad.Value;
+
+    buttonNumber++;
+}
+
+</code></pre>
+    <p>Again I leverage class level variables, sending in my image, text, and button controls from the Unity editor. The I initialize a Button array with those buttons and set their values. Notice, looping over the LevelButtonsAndLoads is really looping over those option elements from the XML. If there was one option, then there will be one loop iteration, and so on.</p>
+
+<pre class="language-csharp"><code class="language-csharp">
+// Disable unused Buttons. Assumes minimum of one Button and maximum of four Buttons.
+for (int i = buttonNumber; i <= 4; i++)
+{
+    currentLevelChoiceButtons[i].GetComponent&lt;Text&gt;().text = "";
+    currentLevelChoiceButtons[i].interactable = false;
+}
+
+</code></pre>
+    <p>Finally, if the number of option/buttons given to me from the XML is less than 4, then disable those extra ones from the scene.</p>
+
+    <p>Check out the finished product <a href="../../../Games/A_Winters_Tale/details/">HERE</a>.</p>
+
+    <p>I hope that I've helped some people or maybe given you something to think about. Good coding!</p>

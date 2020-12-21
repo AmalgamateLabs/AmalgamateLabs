@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\aaronsalisbury\**" />
+    <Content Remove="wwwroot\images\aaronsalisbury\**" />
+    <EmbeddedResource Remove="wwwroot\images\aaronsalisbury\**" />
+    <None Remove="wwwroot\images\aaronsalisbury\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Base\Amalgamate_Labs_Website-d5266ad3e411.p12" />
+    <None Remove="Base\HTTPStatusCodes.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Base\Amalgamate_Labs_Website-d5266ad3e411.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\HTTPStatusCodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
+    <PackageReference Include="SendGrid" Version="9.22.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Veldrid.ImageSharp" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\home\portfolio\" />
+    <Folder Include="wwwroot\images\htpc\backgrounds\" />
+    <Folder Include="wwwroot\images\htpc\stream-buttons\" />
+    <Folder Include="wwwroot\images\game\" />
+    <Folder Include="wwwroot\lib\ionicons\fonts\" />
+    <Folder Include="wwwroot\lib\magnific-popup\" />
+    <Folder Include="wwwroot\lib\isotope\" />
+    <Folder Include="wwwroot\lib\typed\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Blog\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Home\Error.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WebGLGame\Play.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WebGLGame\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

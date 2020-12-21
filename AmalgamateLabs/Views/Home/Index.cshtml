@@ -1,0 +1,286 @@
+﻿@model AmalgamateLabs.Models.ViewModel
+
+@{
+    var blogs = (List<Blog>)ViewData["Blogs"];
+    var webGLGames = (List<WebGLGame>)ViewData["WebGLGames"];
+}
+
+@{
+    ViewData["Title"] = "Amalgamate Labs";
+    ViewData["Description"] = "Official website of Amalgamate Labs. Digital content playground for hobbyist Aaron Salisbury.";
+    ViewData["Keywords"] = "indie, software, varying favor, animation, game, developer, independent, games, dev, Amalgamate, Labs, hobbyists, blog, video, play, online, free";
+    ViewData["URL"] = "https://amalgamatelabs.com/";
+    ViewData["OGType"] = "website";
+    ViewData["OGImagePath"] = "https://amalgamatelabs.com/images/home/og-site.jpg";
+}
+
+@section AboveFoldStylesScripts {
+    <link href="https://amalgamatelabs.com/" rel="canonical">
+    <link href="//cdn.boomcdn.com/libs/owl-carousel/2.3.3/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="~/lib/hover/hover.min.css" rel="stylesheet">
+    <link href="~/css/home.css" rel="stylesheet">
+}
+
+@section NavbarListItems {
+    <li><a href="#header">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+}
+
+@section RichSnippet {
+    <div id="RichSnippet" itemscope itemtype="//schema.org/Organization">
+        <a itemprop="url" href="//www.amalgamatelabs.com/"><div itemprop="name"><strong>Amalgamate Labs</strong></div></a>
+        <a itemprop="sameAs" href="//www.facebook.com/amalgamatelabs/">FB</a>
+        <a itemprop="sameAs" href="//twitter.com/AmalgamateLabs">Twitter</a>
+        <a itemprop="sameAs" href="//www.youtube.com/channel/UC_RVVhC6pzcJ-yUIclpqjew">YouTube</a>
+        <a itemprop="sameAs" href="//www.instagram.com/amalgamate_labs/">Instagram</a>
+        <a itemprop="sameAs" href="//www.amalgamatelabs.tumblr.com">Tumblr</a>
+        <a itemprop="sameAs" href="//dribbble.com/Amalgamate_Labs">Dribbble</a>
+        <img itemprop="image" src="//amalgamatelabs.com/images/home/sketch.jpg" alt="Amalgamate Labs" />
+        <img itemprop="logo" src="//amalgamatelabs.com/images/home/full_logo_black.png" alt="Amalgamate Labs Logo" />
+        <div itemprop="description">Independent developer and animator.</div>
+        <div itemprop="address" itemscope itemtype="//schema.org/PostalAddress">
+            <span itemprop="addressCountry">United States</span><br>
+        </div>
+        <a itemprop="email" href="mailto:AmalgamateLabs@gmail.com">AmalgamateLabs@gmail.com</a>
+    </div>
+}
+
+@section Scripts {
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-3.0.0.min.js"></script>
+    <script src="~/lib/typed/typed.js"></script>
+    <script src="//cdn.boomcdn.com/libs/owl-carousel/2.3.3/owl.carousel.min.js"></script>
+    <script src="~/lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="~/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/js/home.js"></script>
+}
+
+@* HEADER *@
+<div id="header" class="home">
+
+    <div class="container">
+        <div class="header-content">
+            <h1>We're <span class="typed"></span></h1>
+            <p>"No dramatic art form should be dictated and controlled by men whose training and instincts are cut of an entirely different cloth." <b>- Rod Serling</b></p>
+
+            <ul class="list-unstyled list-social">
+                <li><a href="//www.facebook.com/amalgamatelabs"><i class="ion-social-facebook"></i></a></li>
+                <li><a href="//twitter.com/AmalgamateLabs"><i class="ion-social-twitter"></i></a></li>
+                <li><a href="//www.youtube.com/channel/UC_RVVhC6pzcJ-yUIclpqjew"><i class="ion-social-youtube"></i></a></li>
+                <li><a href="//www.instagram.com/amalgamate_labs/"><i class="ion-social-instagram"></i></a></li>
+                <li><a href="//www.amalgamatelabs.tumblr.com"><i class="ion-social-tumblr"></i></a></li>
+                <li><a href="//dribbble.com/Amalgamate_Labs"><i class="ion-social-dribbble"></i></a></li>
+                <li><a href="//github.com/AmalgamateLabs"><i class="ion-social-github"></i></a></li>
+                <li><a href="//amalgamatelabs.com/blog/feed.xml"><i class="ion-social-rss"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@* ABOUT *@
+<div id="about" class="paddsection">
+    <div class="container">
+        <div class="row justify-content-between">
+
+            <div class="col-lg-4 ">
+                <div class="div-img-bg">
+                    <div class="about-img">
+                        <img src="images/home/me.jpg" class="img-responsive" alt="me">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="about-descr">
+
+                    <p class="p-heading">I'm Aaron Salisbury. I am a software engineer, combat veteran, married, and father of three.</p>
+                    <p class="separator">I also enjoy game design and animation. I built this site as a playground to collaborate with friends on digital content creation and as a central hub for various projects and blogs.</p>
+                    <p class="separator">I am a graduate from the <a href="http://www.uwsp.edu">University of Wisconsin – Stevens Point</a>, having majored in Computer Information Systems with an emphasis on Application Development. I also minored in Web & Digital Media Development.</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*TODO: PROJECT CATEGORIES*@
+@*<div id="services">
+        <div class="container">
+            <div class="services-carousel owl-theme">
+
+                <div class="services-block">
+                    <i class="ion-ios-browsers-outline"></i>
+                    <span>UI/UX DESIGN</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+                <div class="services-block">
+                    <i class="ion-ios-lightbulb-outline"></i>
+                    <span>BRAND IDENTITY</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+                <div class="services-block">
+                    <i class="ion-ios-color-wand-outline"></i>
+                    <span>WEB DESIGN</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+                <div class="services-block">
+                    <i class="ion-social-android-outline"></i>
+                    <span>MOBILE APPS</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+                <div class="services-block">
+                    <i class="ion-ios-analytics-outline"></i>
+                    <span>Analytics</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+                <div class="services-block">
+                    <i class="ion-ios-camera-outline"></i>
+                    <span>PHOTOGRAPHY</span>
+                    <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+@* PORTFOLIO *@
+<div id="portfolio" class="text-center paddsection">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Portfolio</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="portfolio-list">
+
+                    <ul class="nav list-unstyled" id="portfolio-flters">
+                        <li class="filter filter-active" data-filter=".all">all</li>
+                        <li class="filter" data-filter=".websites">Web Sites</li>
+                        <li class="filter" data-filter=".minigames">Mini Games</li>
+                        <li class="filter" data-filter=".animation">Animation</li>
+                    </ul>
+
+                </div>
+
+                <div class="portfolio-container">
+
+                    <div class="col-lg-4 col-md-6 portfolio-thumbnail all websites">
+                        <a asp-controller="HTPC" asp-action="Index"><img src="images/home/portfolio/htpc-screenshot.jpg" alt="HTPC Landing website screenshot image">HTPC Landing</a>
+                    </div>
+
+                    <game-section web-gl-games="webGLGames" />
+
+                    <div class="col-lg-4 col-md-6 portfolio-thumbnail all animation">
+                        <a href="https://www.youtube.com/channel/UCRWOjABh9s4ZuGL1W95iM_A"><img src="images/home/portfolio/varying-favor-thumbnail.jpg" alt="Varying Favor YT channel image"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* BLOG *@
+@* TODO: The heights of the blog-body elements and placement of the child mt are messed up. *@
+<div id="blog" class="text-left paddsection">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Blog</h2>
+        </div>
+    </div>
+
+    @* bootsnipp.com/snippets/BxA1B *@
+    <div class="container">
+        <div class="row blog">
+            <div class="col-md-12">
+                <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+
+                    <blog-section blogs="blogs" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* CONTACT *@
+<div id="contact" class="paddsection">
+    <div class="container">
+        <div class="contact-block1">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="contact-contact">
+
+                        <h2 class="mb-30">GET IN TOUCH</h2>
+
+                        <ul class="contact-details">
+                            <li><span>amalgamatelabs@gmail.com</span></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <form asp-action="SubmitContactForm" class="contactForm">
+
+                        <div class="row">
+
+                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                            <div id="errormessage" asp-validation-summary="ModelOnly" />
+
+                            <div class="col-lg-6">
+                                <div class="form-group contact-block1">
+                                    <input asp-for="ContactForm.Name" class="form-control" placeholder="Your Name" />
+                                    <div asp-validation-for="Name" class="validation"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input asp-for="ContactForm.UserEmailAddress" class="form-control" placeholder="Your Email" />
+                                    <div asp-validation-for="UserEmailAddress" class="validation"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input asp-for="ContactForm.Subject" class="form-control" placeholder="Subject" />
+                                    <div asp-validation-for="Subject" class="validation"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <textarea asp-for="ContactForm.MessageBody" class="form-control" rows="12" placeholder="Message"></textarea>
+                                    <div asp-validation-for="MessageBody" class="validation"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* https://bootstrapmade.com/demo/Folio/ *@

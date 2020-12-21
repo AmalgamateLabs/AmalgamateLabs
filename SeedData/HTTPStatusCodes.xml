@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- en.wikipedia.org/wiki/List_of_HTTP_status_codes -->
+
+<HTTPStatusCodes>
+  <HTTPStatusCode code="400" description="Bad Request" />
+  <HTTPStatusCode code="401" description="Unauthorized" />
+  <HTTPStatusCode code="402" description="Payment Required" />
+  <HTTPStatusCode code="403" description="Forbidden" />
+  <HTTPStatusCode code="404" description="Not Found" />
+  <HTTPStatusCode code="405" description="Method Not Allowed" />
+  <HTTPStatusCode code="406" description="Not Acceptable" />
+  <HTTPStatusCode code="407" description="Proxy Authentication Required" />
+  <HTTPStatusCode code="408" description="Request Timeout" />
+  <HTTPStatusCode code="409" description="Conflict" />
+  <HTTPStatusCode code="410" description="Gone" />
+  <HTTPStatusCode code="411" description="Length Required" />
+  <HTTPStatusCode code="412" description="Precondition Failed" />
+  <HTTPStatusCode code="413" description="Payload Too Large" />
+  <HTTPStatusCode code="414" description="URI Too Long" />
+  <HTTPStatusCode code="415" description="Unsupported Media Type" />
+  <HTTPStatusCode code="416" description="Range Not Satisfiable" />
+  <HTTPStatusCode code="417" description="Expectation Failed" />
+  <HTTPStatusCode code="418" description="I'm a teapot" />
+  <HTTPStatusCode code="421" description="Misdirected Request" />
+  <HTTPStatusCode code="422" description="Unprocessable Entity" />
+  <HTTPStatusCode code="423" description="Locked" />
+  <HTTPStatusCode code="424" description="Failed Dependency" />
+  <HTTPStatusCode code="426" description="Upgrade Required" />
+  <HTTPStatusCode code="428" description="Precondition Required" />
+  <HTTPStatusCode code="429" description="Too Many Requests" />
+  <HTTPStatusCode code="431" description="Request Header Fields Too Large" />
+  <HTTPStatusCode code="451" description="Unavailable For Legal Reasons" />
+</HTTPStatusCodes>

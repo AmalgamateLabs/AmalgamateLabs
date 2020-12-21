@@ -1,0 +1,25 @@
+<p><span class="dropcap" style="">U</span>pon exhaustive research and evaluating my goals, I decided that Unity would be the engine in my self-driven mission to develop games. I already work with C# professionally and with Unity's renown Web Player I could have my test concepts online and playable immediately. Oops ... Google, with others following suit, just abandoned support of all NPAPI plugins. Some argue whether this was worthwhile (I think it is) and consider workarounds. Instead, I think we had ought to embrace, as Unity has, WebGL. They are putting the resources behind it, even bringing in engineers from Mozilla, and the last I looked, they have it running at only ~1.5 times slower than native code. All the major browsers are expected to support WebGL and now end users will not have to be bothered with having to download a plugin. That said, WebGL builds are now available with Unity 5, but as an early-access and with some limitations.</p>
+<h2 class="section-heading">Currently Unsupported</h2>
+<ul>
+    <li>MovieTextures</li>
+    <li>Runtime generation of Substance textures</li>
+    <li>Networking other then WWW class (a WebSockets plug-in is available)</li>
+    <li>Support for WebCam and Microphone access</li>
+    <li>Hardware cursor support</li>
+    <li>Most of the non-basic audio features</li>
+    <li>Script debugging</li>
+    <li>Threads</li>
+    <li>Any .NET features requiring dynamic code generation</li>
+</ul>
+<h2 class="section-heading">Getting Started</h2>
+<p>Getting started is as easy as beginning any build. Simply go to File &gt; Build Settings, and select WebGL. Don't forget to select "Switch Platform".</p>
+<img class="img-article" style="width:500px" alt="Unity Build Settings" src="ARTICLE_IMAGE_SOURCE_1">
+<p>While in the build settings, you could continue into the player settings in order to select a template for how your game will appear when launched in the browser. Custom templates are added to a project by creating a folder called "WebGLTemplates" in the Assets folder and the templates themselves are subfolders within this folder. I recommend copying the default template here and renaming it. Then you can make your changes incrementaly. For me, the default instalation location was:  C:\ProgramFiles\Unity\Editor\Data\PlaybackEngines\webglsupport\BuildTools\WebGLTemplates</p>
+<h2 class="section-heading">Let's Play</h2>
+<p>So go ahead and develop your alpha to the point you're ready for a live test. This is where I ran into the most frustrating issues of all. The first, if your not launching from your site's root location as I imagine is most people, you need to help point to your project files. To do this, edit the httaccess file that gets generated for you during the build process. Add this line:</p>
+<img class="img-article" id="imgAccess" alt="httaccess" src="ARTICLE_IMAGE_SOURCE_2">
+<p>Include however many nested folders down to your game folder that you chose to build to. "game-folder" will instead be the name of your game.</p>
+<p>The next problem is more involved and was difficult for me to research. There seems to be a bug with how a couple files get named as well as referenced in JavaScript. I've been expecting this to be patched, but so far it hasn't over the last few Unity updates. Navigate to your game folder and step into the Release folder. The file in error has "html" injected into the middle of it and will look like "Your_Game_Name.html.mem". Just remove the superfluous .html, including the dot. The JavaScript file that is also named after your game needs to be edited next. I recommend right clicking on it and selecting edit, due to the size, trying to launch the file in a code editor can take some time. Do a CTRL+F search for the original file name that you had just changed, including the .html.mem extensions. There should only be one instance, go ahead and delete the .html like before. Finally step out of Release and into Compressed. Repeat the renaming steps above on these compressed versions. If all is done correctly to this point, your game should launch without further issue.</p>
+<p>Click <a href="../../../Games/A_Winters_Tale/details/">HERE</a> to check out a live example.</p>
+<p>I hope that I've helped some people and if you are considering a WebGL build, I highly recommend perusing the following:</p>
+<p style="text-align: center"><a href="http://blogs.unity3d.com/2014/04/29/on-the-future-of-web-publishing-in-unity/">On the Future of Web Publishing in Unity</a> and <a href="http://forum.unity3d.com/threads/webgl-roadmap.334408/">WebGL Roadmap</a></p>

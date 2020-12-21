@@ -1,0 +1,70 @@
+﻿/* Show Navbar */
+#main-nav {
+    display: block !important;
+    position: relative
+}
+
+/*==============================
+GENERAL STYLES
+==============================*/
+@import url(https://fonts.googleapis.com/css?family=Anton|Maven+Pro:500,700);
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    line-height: 25px;
+    background-color: rgba(237, 237, 237, 1);
+    background-image: url('../../../images/game/cubes.png'); /*Background pattern from subtlepatterns.com*/
+    background-repeat: repeat
+}
+
+/*================================
+    LANDING SPECIFIC STYLES
+==================================*/
+
+#centeredColumn {
+    padding-top: 4em
+}
+
+#imgGame {
+    width: 30em;
+    padding-bottom: 1em
+}
+
+#centeredPlayButton {
+    padding-bottom: 2em
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700
+}
+
+p {
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #384452
+}
+
+.centered {
+    text-align: center
+}
+
+.hline {
+    border-bottom: 2px solid #384452
+}
+
+#details {
+    padding-top: .75em
+}
+
+#btnPlay {
+    margin-top: 2em;
+    margin-bottom: 1.5em
+}
+
+#detailsArea {
+    margin-bottom: 5em
+}

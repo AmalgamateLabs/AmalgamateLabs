@@ -1,0 +1,5 @@
+﻿Successful contact form submission should show. Warnings/errors should show too.
+
+Environment variables that are not visable in git.
+
+Replace loading in and reading HTTP status codes from XML with the enum System.Net.HttpStatusCode

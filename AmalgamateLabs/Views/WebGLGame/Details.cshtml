@@ -1,0 +1,67 @@
+﻿@model AmalgamateLabs.Models.WebGLGame
+@using AmalgamateLabs.Base; @* For extension methods to work. *@
+
+@{
+    ViewData["OGType"] = "website";
+}
+
+@section AboveFoldStylesScripts {
+    <link href="@Model.CanonicalUrl()" rel="canonical">
+    <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /> @*TODO: Be nice to get rid of this since the layout uses a newer version.*@
+    <link rel="stylesheet" href="~/css/game-details.css" />
+}
+
+@*TODO: This is pushing the page way past the footer, not on the home page though.*@
+@*@section RichSnippet {
+    <div id="RichSnippet" itemtype="https://schema.org/VideoGame" itemscope="">
+        <h1 itemprop="name"><a href="@Model.CanonicalUrl()" itemprop="url">@Html.DisplayFor(model => model.Title)</a></h1>
+        <img alt="@Html.DisplayFor(model => model.Title)" src="@Model.OpenGraphPicture.ImagePath()" itemprop="image">
+        <img alt="@Html.DisplayFor(model => model.Title) Screenshot" src="@Model.Screenshot.ImagePath()" itemprop="screenshot">
+        <div itemtype="https://schema.org/Person" itemscope="" itemprop="author">
+            <p itemprop="name">@Html.DisplayFor(model => model.Designer)</p>
+        </div>
+        <div itemtype="https://schema.org/Organization" itemscope="" itemprop="publisher">
+            <p itemprop="name">Amalgamate Labs</p>
+        </div>
+        <p>Application Category: <span itemprop="applicationCategory">Game</span></p>
+        <p>Genre: <span itemprop="genre">@Html.DisplayFor(model => model.Genre)</span></p>
+        <p>Game Platform: <span itemprop="gamePlatform">Browser</span></p>
+        <p>Requires: <span itemprop="operatingSystem">WebGL</span></p>
+        <p>Play Mode: <span itemprop="playMode">Single Player</span></p>
+        <p>Rated: <span itemprop="contentRating">@Model.Rating</span></p>
+        <div itemprop="description">@Html.DisplayFor(model => model.Description)</div>
+        <div itemtype="https://schema.org/Offer" itemscope="" itemprop="offers">Price: $<span itemprop="price">0.00</span><meta content="USD" itemprop="priceCurrency"></div>
+    </div>
+}*@
+
+<div id="detailsArea" class="container mt">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 centered" id="centeredColumn">
+            <img id="imgGame" alt="Escape from the Swamp Cart" src="@Model.LargeImage.ImagePath()">
+        </div>
+        <div class="col-lg-10 col-lg-offset-1 centered" id="centeredPlayButton">
+            <a class="btn btn-primary btn-lg" id="btnPlay" role="button" asp-action="Play" asp-route-id="@Model.WebGLGameId">Play Free</a>
+        </div>
+        <div class="col-lg-5 col-lg-offset-1">
+            <div class="spacing"></div>
+
+            <h4>@Model.Title.ToUpper()</h4>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+            <h4>High Level Concept</h4>
+            <p>@Html.DisplayFor(model => model.Concept)</p>
+        </div>
+        <div class="col-lg-4 col-lg-offset-1">
+            <div class="spacing"></div>
+            <h4>Project Details</h4>
+            <div class="hline"></div>
+            <div id="details">
+                <p><b>Posted:</b> @Model.PostedDate.LongPrintedDate()</p>
+                <p><b>Categories:</b> @Html.DisplayFor(model => model.Categories)</p>
+                <p><b>Designer:</b> @Html.DisplayFor(model => model.Designer)</p>
+                <p><b>Engine:</b> @Html.DisplayFor(model => model.Engine)</p>
+                <p><b>Developer:</b> Amalgamate Labs</p>
+                <p><b>Website:</b> <a href="https://amalgamatelabs.com/">AmalgamateLabs.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>

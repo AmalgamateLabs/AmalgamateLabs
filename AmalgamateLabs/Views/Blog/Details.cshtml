@@ -1,0 +1,72 @@
+﻿@model AmalgamateLabs.Models.Blog
+@using AmalgamateLabs.Base; @* For extension methods to work. *@
+
+@{
+    ViewData["OGType"] = "blog";
+}
+
+@section AboveFoldStylesScripts {
+    <link href="@Model.CanonicalUrl()" rel="canonical">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    <link rel="stylesheet" href="~/lib/prism/prism.css">
+    <link rel="stylesheet" href="~/css/blog.css" />
+}
+
+@*TODO: This is pushing the page way past the footer, not on the home page though.*@
+@*@section RichSnippet {
+    <div id="RichSnippet" itemtype="https://schema.org/TechArticle" itemscope="">
+        <h1 itemprop="name">@Html.DisplayFor(model => model.Title)</h1>
+        <img alt="blog main image" src="@Model.HeaderPicture.ImagePath()" itemprop="image">
+        <p>Headline: <span itemprop="headline">@Html.DisplayFor(model => model.Subtitle)</span></p>
+        <div itemtype="https://schema.org/Person" itemscope="" itemprop="author">
+            <p itemprop="name">@Html.DisplayFor(model => model.Author)</p>
+        </div>
+        <div itemtype="https://schema.org/Organization" itemscope="" itemprop="publisher">
+            <p itemprop="name">Amalgamate Labs</p>
+        </div>
+        <p>Date Published: <span itemprop="datePublished">@Html.DisplayFor(model => model.PostedDate)</span></p>
+        <div itemprop="description">@Html.DisplayFor(model => model.Description)</div>
+    </div>
+}*@
+
+@section Scripts {
+    <script src="~/lib/prism/prism.js"></script>
+}
+
+<header class="intro-header" style="background-image: url('@Model.HeaderPicture.ImagePath()')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>@Html.DisplayFor(model => model.Title)</h1>
+                    <h2 class="subheading">@Html.DisplayFor(model => model.Subtitle)</h2>
+                    <span class="meta">Posted by @Html.DisplayFor(model => model.Author) on @Model.PostedDate.LongPrintedDate()</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container">
+        @Html.DisplayFor(model => model.Article)
+    </div>
+</article>
+
+<hr />
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = '@Model.CanonicalUrl()';
+        this.page.identifier = '@Model.UniquePageIdentifier()';
+    };
+    (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//amalgamatelabs.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

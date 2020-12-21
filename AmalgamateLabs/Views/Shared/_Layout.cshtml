@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" Content="IE=edge">
+    <meta name="viewport" Content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Aaron Salisbury" />
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewData["Description"]" />
+    <meta name="keywords" content="@ViewData["Keywords"]" />
+    <meta property="og:title" content="@ViewData["Title"]" />
+    <meta property="og:url" content="@ViewData["URL"]" />
+    <meta property="og:type" content="@ViewData["OGType"]" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    <meta property="og:image" content="@ViewData["OGImagePath"]" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+    <meta property="og:site_name" content="Amalgamate Labs" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://amalgamatelabs.com/" rel="alternate" hreflang="x-default">
+    <link rel="alternate" type="application/rss+xml" title="Amalgamate Labs Developer Blog" href="//amalgamatelabs.com/blog/feed.xml" />
+    <link href="//ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet"> @* Footer *@
+    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("AboveFoldStylesScripts", required: false)
+</head>
+
+<body>
+    @RenderSection("RichSnippet", required: false)
+
+    <div id="wrapper">
+
+        <nav id="main-nav">
+            <div class="row">
+                <div class="container">
+
+                    <div class="ALLogo">
+                        <a href="index.html"><img src="~/images/logo.png" alt="logo"></a>
+                    </div>
+
+                    <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+
+                    <ul class="nav-menu list-unstyled">
+                        @*Only Home/Index will ever be different.*@
+                        @if (IsSectionDefined("NavbarListItems"))
+                        {
+                            @RenderSection("NavbarListItems")
+                        }
+                        else
+                        {
+                            <li><a asp-controller="Home" asp-action="Index" asp-fragment="header" class="smoothScroll">Home</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-fragment="about" class="smoothScroll">About</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-fragment="portfolio" class="smoothScroll">Portfolio</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-fragment="blog" class="smoothScroll">Blog</a></li>
+                            <li><a asp-controller="Home" asp-action="Index" asp-fragment="contact" class="smoothScroll">Contact</a></li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        @* TODO: If I ever have to use cookies. *@
+        @*<partial name="_CookieConsentPartial" />*@
+
+        @RenderBody()
+
+
+
+        <div id="footer" class="text-center">
+            <div class="container">
+                <div class="socials-media text-center">
+                    <ul class="list-unstyled">
+                        <li><a href="//www.facebook.com/amalgamatelabs"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="//twitter.com/AmalgamateLabs"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="//www.youtube.com/channel/UC_RVVhC6pzcJ-yUIclpqjew"><i class="ion-social-youtube"></i></a></li>
+                        <li><a href="//www.instagram.com/amalgamatelabs/"><i class="ion-social-instagram"></i></a></li>
+                        <li><a href="//www.amalgamatelabs.tumblr.com"><i class="ion-social-tumblr"></i></a></li>
+                        <li><a href="//dribbble.com/Amalgamate_Labs"><i class="ion-social-dribbble"></i></a></li>
+                        <li><a href="//github.com/AmalgamateLabs"><i class="ion-social-github"></i></a></li>
+                        <li><a href="//amalgamatelabs.com/blog/feed.xml"><i class="ion-social-rss"></i></a></li>
+                    </ul>
+                </div>
+                <p>
+                    &copy;
+                    <script type="text/JavaScript">document.write(new Date().getFullYear());</script>
+                    Amalgamate Labs
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

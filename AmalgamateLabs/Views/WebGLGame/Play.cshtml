@@ -1,0 +1,60 @@
+﻿@model AmalgamateLabs.Models.WebGLGame
+@using AmalgamateLabs.Base; @* For extension methods to work. *@
+
+@{
+    ViewData["OGType"] = "website";
+}
+
+@section AboveFoldStylesScripts {
+    <link href="@Model.CanonicalUrl()" rel="canonical">
+    <script src="~/WebGL_Games/TemplateData/UnityProgress.js"></script>
+    <link rel="stylesheet" href="~/css/webgl-play.css" />
+}
+
+@*TODO: This is pushing the page way past the footer, not on the home page though.*@
+@*@section RichSnippet {
+    <div id="RichSnippet" itemtype="https://schema.org/VideoGame" itemscope="">
+        <h1 itemprop="name"><a href="@Model.CanonicalUrl()" itemprop="url">@Html.DisplayFor(model => model.Title)</a></h1>
+        <img alt="@Html.DisplayFor(model => model.Title)" src="@Model.OpenGraphPicture.ImagePath()" itemprop="image">
+        <img alt="@Html.DisplayFor(model => model.Title) Screenshot" src="@Model.Screenshot.ImagePath()" itemprop="screenshot">
+        <div itemtype="https://schema.org/Person" itemscope="" itemprop="author">
+            <p itemprop="name">@Html.DisplayFor(model => model.Designer)</p>
+        </div>
+        <div itemtype="https://schema.org/Organization" itemscope="" itemprop="publisher">
+            <p itemprop="name">Amalgamate Labs</p>
+        </div>
+        <p>Application Category: <span itemprop="applicationCategory">Game</span></p>
+        <p>Genre: <span itemprop="genre">@Html.DisplayFor(model => model.Genre)</span></p>
+        <p>Game Platform: <span itemprop="gamePlatform">Browser</span></p>
+        <p>Requires: <span itemprop="operatingSystem">WebGL</span></p>
+        <p>Play Mode: <span itemprop="playMode">Single Player</span></p>
+        <p>Rated: <span itemprop="contentRating">@Model.Rating</span></p>
+        <div itemprop="description">@Html.DisplayFor(model => model.Description)</div>
+        <div itemtype="https://schema.org/Offer" itemscope="" itemprop="offers">Price: $<span itemprop="price">0.00</span><meta content="USD" itemprop="priceCurrency"></div>
+    </div>
+}*@
+
+@section Scripts {
+    <script type='text/javascript'>
+        var Module = {
+            TOTAL_MEMORY: 268435456,
+            errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+            compatibilitycheck: null,
+            backgroundColor: "#222C36",
+            splashStyle: "Light",
+            dataUrl: "@ViewData["UnityDataURL"]",
+            codeUrl: "@ViewData["UnityCodeURL"]",
+            asmUrl: "@ViewData["UnityAsmURL"]",
+            memUrl: "@ViewData["UnityMemURL"]"
+        };
+    </script>
+    <script src="~/WebGL_Games/@Html.DisplayFor(model => model.URLSafeTitle)/Release/UnityLoader.js"></script>
+}
+
+<div class="template-wrap clear w-50 mx-auto">
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+    <br>
+    <div class="logo"></div>
+    <div class="fullscreen"><img src="~/WebGL_Games/TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+    <div class="title">@Html.DisplayFor(model => model.Title)</div>
+</div>

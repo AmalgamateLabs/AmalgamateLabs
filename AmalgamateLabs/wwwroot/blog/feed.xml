@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amalgamate Labs Developer Blog</title>
+    <description>A place where we cement ideas &amp; techniques during development. We include software development tips, code examples, open source software, best practices, and product development stories.</description>
+    <link>https://amalgamatelabs.com/Blog/</link>
+    <atom:link href="https://amalgamatelabs.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Data Persistence: Saving Games Online in Unity WebGL</title>
+      <description>Create individual player save data for Unity and store it client side to be reloaded later.</description>
+      <link>https://amalgamatelabs.com/Blog/2016/Data_Persistence/</link>
+      <guid>https://amalgamatelabs.com/Blog/2016/Data_Persistence/</guid>
+    </item>
+
+    <item>
+      <title>Easy Way to Draw Pixel Art in Illustrator</title>
+      <description>Exploring the Rectangular Grid Tool and Live Paint Bucket to easily and quickly create pixel art in Illustrator.</description>
+      <link>https://amalgamatelabs.com/Blog/2015/Draw_Pixel_Art/</link>
+      <guid>https://amalgamatelabs.com/Blog/2015/Draw_Pixel_Art/</guid>
+    </item>
+
+    <item>
+      <title>Unity and XML</title>
+      <description>Create XML elements by name to house game data respresenting objects of similar characteristics.</description>
+      <link>https://amalgamatelabs.com/Blog/2015/Unity_and_XML/</link>
+      <guid>https://amalgamatelabs.com/Blog/2015/Unity_and_XML/</guid>
+    </item>
+
+    <item>
+      <title>The Death of Unity Web Player</title>
+      <description>We had ought to embrace, as Unity has, WebGL. They are putting the resources behind it &amp; have it running at only ~1.5 times slower than native code. All the major browsers are expected to support WebGL and now end users will not have to be bothered with having to download a plugin.</description>
+      <link>https://amalgamatelabs.com/Blog/2015/Unity_WebGL/</link>
+      <guid>https://amalgamatelabs.com/Blog/2015/Unity_WebGL/</guid>
+    </item>
+  </channel>
+</rss>
