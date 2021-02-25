@@ -57,6 +57,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Apps\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Blog\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
