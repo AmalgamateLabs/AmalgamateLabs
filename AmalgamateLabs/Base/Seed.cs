@@ -20,6 +20,7 @@ namespace AmalgamateLabs.Base
             {
                 recordsUpdated += await SeedSystemConfig(context);
                 recordsUpdated += await SeedWebGLData(context);
+                recordsUpdated += await SeedStoreAppData(context);
                 recordsUpdated += await SeedBlogData(context);
             }
 
@@ -54,10 +55,10 @@ namespace AmalgamateLabs.Base
                 Title = "Monty Hall",
                 URLSafeTitle = "Monty_Hall",
                 PostedDate = new DateTime(2016, 2, 14),
-                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Thumbnails\Monty Hall\monty-hall-thumbnail.jpg")),
-                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Monty-Hall-Trans.png")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Monty-Hall-OG.jpg")),
-                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Monty-Hall-Screenshot.jpg")),
+                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\MontyHall\Monty Hall\SmallImage.jpg")),
+                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\MontyHall\LargeImage.png")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\MontyHall\OpenGraphPicture.jpg")),
+                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\MontyHall\Screenshot.jpg")),
                 Designer = "Aaron Salisbury",
                 Genre = "Simulation",
                 Engine = "Unity",
@@ -73,10 +74,10 @@ namespace AmalgamateLabs.Base
                 Title = "Night of the Clicking Dead",
                 URLSafeTitle = "Night_of_the_Clicking_Dead",
                 PostedDate = new DateTime(2016, 3, 26),
-                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Thumbnails\Night of the Clicking Dead\clicking-dead-thumbnail.jpg")),
-                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Clicking-Dead-Trans.png")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Clicking-Dead-OG.jpg")),
-                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Clicking-Dead-Screenshot.jpg")),
+                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\NightOfTheClickingDead\SmallImage.jpg")),
+                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\NightOfTheClickingDead\LargeImage.png")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\NightOfTheClickingDead\OpenGraphPicture.jpg")),
+                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\NightOfTheClickingDead\Screenshot.jpg")),
                 Designer = "Aaron Salisbury",
                 Genre = "Clicking",
                 Engine = "Unity",
@@ -92,10 +93,10 @@ namespace AmalgamateLabs.Base
                 Title = "Reverent Saga: A Winter's Tale",
                 URLSafeTitle = "Reverent_Saga_-_A_Winters_Tale",
                 PostedDate = new DateTime(2015, 8, 22),
-                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Thumbnails\A Winter's Tale\a-winters-tale-thumbnail.jpg")),
-                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\A_Winters_Tale_Diskette-Trans.png")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\A_Winters_Tale_OG.jpg")),
-                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\A_Winters_Tale_Screenshot.jpg")),
+                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-AWintersTale\SmallImage.jpg")),
+                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-AWintersTale\LargeImage.png")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-AWintersTale\OpenGraphPicture.jpg")),
+                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-AWintersTale\Screenshot.jpg")),
                 Designer = "Aaron Salisbury",
                 Genre = "Text Adventure",
                 Engine = "Unity",
@@ -111,10 +112,10 @@ namespace AmalgamateLabs.Base
                 Title = "Reverent Saga: Escape from the Swamp",
                 URLSafeTitle = "Reverent_Saga_-_Escape_from_the_Swamp",
                 PostedDate = new DateTime(2016, 2, 21),
-                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Thumbnails\Escape from the Swamp\escape-thumbnail.jpg")),
-                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Escape_from_the_Swamp_Cart-Trans.png")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Escape_from_the_Swamp_OG.jpg")),
-                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Escape_from_the_Swamp_Screenshot.jpg")),
+                SmallImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-EscapeFromTheSwamp\SmallImage.jpg")),
+                LargeImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-EscapeFromTheSwamp\LargeImage.png")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-EscapeFromTheSwamp\OpenGraphPicture.jpg")),
+                Screenshot = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"WebGLGames\ReverentSaga-EscapeFromTheSwamp\Screenshot.jpg")),
                 Designer = "Aaron Salisbury",
                 Genre = "Platformer",
                 Engine = "Unity",
@@ -123,6 +124,27 @@ namespace AmalgamateLabs.Base
                 Concept = "Escape from the Swamp is inspired by, and a humble tribute to, Pitfall! which was originally released on the Atari 2600. Developed by David Crane, Pitfall! was elegantly engineered and ahead of its time.",
                 GameType = WebGLGame.GameTypes.Full,
                 Rating = WebGLGame.Ratings.Everyone
+            });
+
+            return await context.SaveChangesAsync();
+        }
+
+        private static async Task<int> SeedStoreAppData(DbContext context)
+        {
+            context.Add(new StoreApp()
+            {
+                Title = "Sophron Budget",
+                URLSafeTitle = "Sophron_Budget",
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\OpenGraphPicture.png")),
+                LogoImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\LogoImage.png")),
+                MainImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
+                Feature1Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
+                Feature2Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
+                Feature3Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
+                Description = "",
+                FeatureOne = "",
+                FeatureTwo = "",
+                FeatureThree = "",
             });
 
             return await context.SaveChangesAsync();
@@ -137,22 +159,21 @@ namespace AmalgamateLabs.Base
                 Subtitle = "Getting Started With WebGL",
                 Keywords = "blog, developer, dev, Unity, Web Player, WebGL",
                 Description = "We had ought to embrace, as Unity has, WebGL. They are putting the resources behind it, even bringing in engineers from Mozilla, and the last I looked, they have it running at only ~1.5 times slower than native code. All the major browsers are expected to support WebGL and now end users will not have to be bothered with having to download a plugin. That said, WebGL builds are now available with Unity 5, but as an early-access and with some limitations.",
-                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Unity_WebGL_Thumbnail.jpg")),
-                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Unity_WebGL_Header.jpg")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\og-unity-webgl.jpg")),
+                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\Unity_WebGL_Thumbnail.jpg")),
+                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\HeaderPicture.jpg")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\OpenGraphPicture.jpg")),
                 PostedDate = new DateTime(2015, 8, 23),
-                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\Unity_WebGL.txt")),
+                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\Article.txt")),
                 ArticlePictures = Images.ConvertListOfImagesToArrayOfImages(new List<byte[]>()
-                    {
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Unity_WebGL_Article_1.jpg")),
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Unity_WebGL_Article_2.jpg"))
-                    })
+                {
+                    Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\Article_1.jpg")),
+                    Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\TheDeathOfUnityWebPlayer\Article_2.jpg"))
+                })
             };
 
             int webGLImageCounter = 1;
             foreach (byte[] articlePicture in Images.ConvertArrayOfImagesToListOfImages(webGLBlog.ArticlePictures))
             {
-                string imagePath = articlePicture.ImagePath();
                 webGLBlog.Article = webGLBlog.Article.Replace($"ARTICLE_IMAGE_SOURCE_{webGLImageCounter++}", articlePicture.ImagePath());
             }
 
@@ -165,11 +186,11 @@ namespace AmalgamateLabs.Base
                 Subtitle = "Start Parsing XML Data for Your Games",
                 Keywords = "blog, developer, dev, Unity, XML, parse, parsing",
                 Description = "Create XML elements by name to house game data respresenting objects of similar characteristics to support your games.",
-                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Unity_and_XML_Thumbnail.jpg")),
-                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Unity_and_XML_Header.jpg")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\og-unity-xml.jpg")),
+                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\UnityAndXML\Thumbnail.jpg")),
+                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\UnityAndXML\HeaderPicture.jpg")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\UnityAndXML\OpenGraphPicture.jpg")),
                 PostedDate = new DateTime(2015, 8, 30),
-                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\Unity_and_XML.txt"))
+                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\UnityAndXML\Article.txt"))
             });
 
             Blog pixelArtBlog = new Blog()
@@ -179,25 +200,24 @@ namespace AmalgamateLabs.Base
                 Subtitle = "Exploring the Rectangular Grid Tool",
                 Keywords = "blog, developer, dev, Adobe, Illustrator, pixel, art, rectangular, grid, tool, live, paint, bucket",
                 Description = "Exploring the Rectangular Grid Tool and Live Paint Bucket to easily and quickly create pixel art in Illustrator.",
-                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Draw_Pixel_Art_Thumbnail.jpg")),
-                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Draw_Pixel_Art_Header.jpg")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\og-draw-pixal-art.jpg")),
+                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Thumbnail.jpg")),
+                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\HeaderPicture.jpg")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\OpenGraphPicture.jpg")),
                 PostedDate = new DateTime(2015, 9, 6),
-                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\Draw_Pixel_Art.txt")),
+                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article.txt")),
                 ArticlePictures = Images.ConvertListOfImagesToArrayOfImages(new List<byte[]>()
                     {
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Draw_Pixel_Art_Article_1.jpg")),
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Draw_Pixel_Art_Article_2.jpg")),
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Draw_Pixel_Art_Article_3.jpg")),
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Draw_Pixel_Art_Article_4.jpg")),
-                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Article Images\Draw_Pixel_Art_Article_5.jpg"))
+                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article_1.jpg")),
+                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article_2.jpg")),
+                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article_3.jpg")),
+                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article_4.jpg")),
+                        Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\EasyWayToDrawPixelArtInIllustrator\Article_5.jpg"))
                     })
             };
 
             int pixelArtImageCounter = 1;
             foreach (byte[] articlePicture in Images.ConvertArrayOfImagesToListOfImages(pixelArtBlog.ArticlePictures))
             {
-                string imagePath = articlePicture.ImagePath();
                 pixelArtBlog.Article = pixelArtBlog.Article.Replace($"ARTICLE_IMAGE_SOURCE_{pixelArtImageCounter++}", articlePicture.ImagePath());
             }
 
@@ -211,11 +231,11 @@ namespace AmalgamateLabs.Base
                 Subtitle = "Saving Games Online in Unity WebGL",
                 Keywords = "blog, developer, dev, Unity, data, persistence, save game",
                 Description = "Create individual player save data for Unity and store it client side to be reloaded later.",
-                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Data_Persistence_Thumbnail.jpg")),
-                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\Data_Persistence_Header.jpg")),
-                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Pictures\og-data-persist.jpg")),
+                Thumbnail = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\DataPersistence\Thumbnail.jpg")),
+                HeaderPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\DataPersistence\HeaderPicture.jpg")),
+                OpenGraphPicture = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"Blogs\DataPersistence\OpenGraphPicture.jpg")),
                 PostedDate = new DateTime(2016, 4, 2),
-                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\Data_Persistence.txt"))
+                Article = File.ReadAllText(Path.Combine(SEED_DATA_PATH, @"Blogs\DataPersistence\Article.txt"))
             });
 
             return await context.SaveChangesAsync();

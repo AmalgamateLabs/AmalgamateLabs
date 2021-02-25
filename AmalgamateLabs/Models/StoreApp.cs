@@ -20,6 +20,11 @@ namespace AmalgamateLabs.Models
         public string URLSafeTitle { get; set; }
 
         [Required]
+        [Display(Name = "Open graph picture")]
+        [DataType(DataType.Upload)]
+        public byte[] OpenGraphPicture { get; set; }
+
+        [Required]
         [Display(Name = "Logo image")]
         [DataType(DataType.Upload)]
         public byte[] LogoImage { get; set; }
@@ -43,11 +48,6 @@ namespace AmalgamateLabs.Models
         [Display(Name = "Feature 3 image")]
         [DataType(DataType.Upload)]
         public byte[] Feature3Image { get; set; }
-
-        [Required]
-        [Display(Name = "Open graph picture")]
-        [DataType(DataType.Upload)]
-        public byte[] OpenGraphPicture { get; set; }
 
         [Required]
         [StringLength(500, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]

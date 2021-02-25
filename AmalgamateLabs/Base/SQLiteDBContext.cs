@@ -17,6 +17,7 @@ namespace AmalgamateLabs.Base
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<WebGLGame> WebGLGames { get; set; }
+        public virtual DbSet<StoreApp> StoreApps { get; set; }
         public virtual DbSet<AppException> AppExceptions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
