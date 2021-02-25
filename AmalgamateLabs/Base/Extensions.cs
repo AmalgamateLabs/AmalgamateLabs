@@ -36,5 +36,10 @@ namespace AmalgamateLabs.Base
         {
             return $"https://amalgamatelabs.com/WebGLGame/Details/{webGLGame.WebGLGameId}";
         }
+
+        public static string CanonicalUrl(this StoreApp storeApp)
+        {
+            return $"https://amalgamatelabs.com/StoreApp/Details/{storeApp.StoreAppId}";
+        }
     }
 }
