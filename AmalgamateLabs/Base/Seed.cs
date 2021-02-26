@@ -141,12 +141,12 @@ namespace AmalgamateLabs.Base
                 MainImage = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
                 Feature1Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
                 Feature2Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
-                Feature3Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\MainImage.png")),
+                Feature3Image = Images.ConvertImageToBytes(Path.Combine(SEED_DATA_PATH, @"StoreApps\SophronBudget\Feature3Image.png")),
                 Feature1Title = "Feature 1 Title",
                 Feature1Description = "Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!",
                 Feature2Title = "Feature 2 Title",
                 Feature2Description = "Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!",
-                Feature3Title = "Feature 3 Title",
+                Feature3Title = "Export to Excel",
                 Feature3Description = "Omnis, esse quo natus soluta minima facilis ratione dignissimos necessitatibus quod dolorem labore molestiae maxime veritatis laudantium aut odio ullam laboriosam autem!",
             });
 
